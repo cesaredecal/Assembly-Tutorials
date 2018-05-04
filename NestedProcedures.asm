@@ -4,7 +4,6 @@
 	main: 
 		# Print value
 		addi $s0, $zero, 10
-		
 		jal increaseMyRegister
 		jal printTheValue
 	
