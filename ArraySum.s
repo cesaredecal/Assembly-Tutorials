@@ -7,17 +7,29 @@
 
 # indirizzo in $a0
 # indice in $t3
-# somma in $t4
-# 40 in $t0 (num max)
+# somma in $s4
+# 40 in $s3 (num max)
 
 main:	
-	addi $t3, $zero, 40
+	# Lunghezza array
+	addi $s3, $zero, 40
+	
+	# Carico in $a0 indirizzo array
 	la $a0, voti
-	move $a1, $a0
+	
+	# Offset
+	add $s0, $zero, $zero
+	
+	# Somma
+	add $s4, $zero, $zero
+	
 	jal somma
 somma:
-	bne $t1, $t3, fine
-	la $t0, voti
+	bne $s0, $s3, fine
+	addi $a0, $a0, 4
+	
+	# Prendi elemento da array
+	
 	addi $t3, $t3, 4
 	add $t4, $t4, $t0
 fine:
